@@ -46,6 +46,8 @@ Os sistemas Big Data deben ser capaces de xestionar todos estes tipos de datos d
 - Divide os ficheiros en bloques (por defecto 128MB) e distribóeos entre os nodos do clúster.
 - Cada bloque ten varias réplicas (normalmente 3) para garantir tolerancia a fallos.
 
+![Arquitectura HDFS](images/hdfs-arquitectura.png)
+
 ### Compoñentes principais:
 - **NameNode**: xestiona a estrutura do sistema de ficheiros (metadatos).
 - **DataNodes**: almacenan os bloques reais de datos.
