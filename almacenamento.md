@@ -77,6 +77,7 @@ MinIO é unha solución lixeira de almacenamento de obxectos compatible coa API 
 - Probas locais
 - Formación en Data Lakes sen depender da nube pública
 
+![Amazon S3 / Minio](images/s3-minio.png)
 #### Características:
 - 100% compatible coa API de Amazon S3
 - Instalación sinxela en local ou mediante contedores Docker
@@ -127,7 +128,7 @@ Parquet adoita ser o formato preferido en arquitecturas Big Data modernas.
 ## 7. Arquitectura Medallion (Bronze - Silver - Gold)
 
 Un enfoque progresivo para xestionar e almacenar datos con diferentes niveis de calidade:
-
+![Arquitectura medallion](images/medallion.png)
 - **Bronze**: datos en bruto, sen procesar. Ex: CSVs cargados de APIs ou logs.
 - **Silver**: datos limpos, validados, estruturados. Ex: Parquet con tipos definidos e nulos eliminados.
 - **Gold**: datos preparados para BI, agregados, resumidos e optimizados para consulta.
