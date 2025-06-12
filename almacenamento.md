@@ -1,3 +1,8 @@
+---
+layout: default
+title: Almacenamento
+---
+
 # Apuntamentos: Almacenamento no contexto Big Data
 
 ---
