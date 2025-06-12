@@ -9,4 +9,6 @@ Estes son os apuntamentos para o módulo de Big Data Aplicado, pertencente ao cu
 
 👉 [0. Introdución ao Big Data](intro-bd.html).
 
+    [0.1. Hadoop](hadoop.html).
+    
 👉 [1. Almacenamento](almacenamento.html).
