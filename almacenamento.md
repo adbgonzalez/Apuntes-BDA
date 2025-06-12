@@ -3,7 +3,7 @@ layout: default
 title: Almacenamento
 ---
 
-# Apuntamentos: Almacenamento no contexto Big Data
+# Almacenamento en Big Data
 
 ---
 
@@ -33,7 +33,7 @@ O almacenamento é un piar fundamental nas arquitecturas de Big Data. As caracte
 - Non seguen ningunha estrutura predefinida
 - Ex: imaxes, vídeos, documentos PDF, audio
 
-![Tipos de datos Big Data](images/tipos-datos-bd-es.webp)
+![Tipos de datos Big Data](images/tipos-datos-bd-es.png)
 
 Os sistemas Big Data deben ser capaces de xestionar todos estes tipos de datos de forma eficiente.
 
