@@ -112,20 +112,21 @@ MinIO é unha solución lixeira de almacenamento de obxectos compatible coa API 
 
 ## 6. Formatos de almacenamento
 
-A elección do formato de datos é clave para o rendemento e a compatibilidade:
+A elección do formato de datos é clave para### o rendemento e a compatibilidade:
 
 | Formato | Tipo | Características |
 |--------|------|-------------------|
 | CSV    | Texto plano | Sinxelo, universal, pouco eficiente |
 | JSON   | Texto plano | Lexible, semi-estruturado, verbose |
-| Parquet| Columar | Eficiente para lectura selectiva e compresión |
+| Parquet| Columnar | Eficiente para lectura selectiva e compresión |
 | Avro   | Binario | Compacto, schema embebido |
 
 Parquet adoita ser o formato preferido en arquitecturas Big Data modernas.
 
 ---
+## 7. Modelos de organización de datos
 
-## 7. Arquitectura Medallion (Bronze - Silver - Gold)
+### Arquitectura Medallion (Bronze - Silver - Gold)
 
 Un enfoque progresivo para xestionar e almacenar datos con diferentes niveis de calidade:
 ![Arquitectura medallion](images/medallion.png)
@@ -134,6 +135,52 @@ Un enfoque progresivo para xestionar e almacenar datos con diferentes niveis de 
 - **Gold**: datos preparados para BI, agregados, resumidos e optimizados para consulta.
 
 Esta arquitectura favorece a calidade de datos e a trazabilidade. É especialmente útil en arquitecturas tipo Lakehouse.
+
+### Arquitectura Lambda
+Divide o sistema nas seguintes capas.
+- **Batch layer**: Procesa datos históricos en grandes lotes.
+- **Speed layer**: Procesa datos en tempo real con latencia baxa.
+- **Serving layer**: Combina os resultados das dúas capas anteriores para ofrecer respostas aos usuarios
+#### Vantaxes:
+- Permite combinar precisión (batch) e velocidade (streaming).
+- Ben adaptado para escenarios onde a baixa latencia é crítica (tempo real).
+#### Desvantaxes:
+- Complexidade: Dúas lóxicas de procesamento distintas.
+- Alto custo de mantemento.
+Emprégase  en sistemas OLAP, motores como *Apache Storm*, *Spark Streaming*, etc.
+
+### Arquitecutra Kappa
+Semellante a *Lambda* pero fai todo o procesamento a través de streaming.
+#### Vantaxes:
+- Simplicidade: Unha soa base para procesamento en tempo real.
+- Escalable e elástica.
+#### Desvantaxes:
+- Só para procesamento en streaming.
+- Require ferramentas potentes (*kafka+flink/spark*).
+Emprégase en escenarios orientados a eventos (*event-driven*).
+
+### Arquitectura Data Lakehouse
+Unifica o enfoque de *Data warehouse* e *Data Lake*. Pode ou non seguir a arquitectura *Medallion*.
+#### Vantaxes:
+- Flexibilidade.
+- Integración nativa con ferramentas de *BI* e *SQL*.
+#### Desvantaxes:
+- Menos explícita que *Medallion*.
+Emprégase en sistemas baseados en *Delta Lake*, *Apache Iceberg* ou *Apache Hudi*.
+
+### Arquitectura ELT 
+En contraposición a *ETL* (extracción-transformación-carga), intercambia as dúas últimas fases: extracción - carga - transformación.
+- Extracción: datos brutos no data lake.
+- Carga: directamente ao destino (Data Warehouse/Lakehouse).
+- Transformación: no destino empregando *DBT* ou *SQL*.
+
+![Arquitectura ELT](images/elt.png)
+#### Vantaxes:
+- Máis transparente e rastrexable.
+- Boa integración con ferramentas modernas.
+#### Desvantaxes:
+- Precisa almacéns de datos potentes.
+Non moi eficaz con datos desestruturados.
 
 ---
 
