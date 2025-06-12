@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Páxina principal
+title: Big Data Aplicado
 ---
 
-# Benvido/a ao meu sitio!
+# Apuntamentos de Big Data Aplicado
 
-Este sitio está feito con GitHub Pages e Markdown usando Jekyll.
+Estes son os apuntamentos para o módulo de Big Data Aplicado, pertencente ao curso de especialización en Intelixencia Artificial e Big Data
 
-👉 Visita tamén a [páxina Sobre min](about.html).
+👉 [1. Introdución ao Big Data](intro-bd.html).
